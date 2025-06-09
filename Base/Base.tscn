@@ -1,8 +1,8 @@
 [gd_scene load_steps=8 format=3 uid="uid://ksbdxjiwbk84"]
 
-[ext_resource type="Texture2D" uid="uid://ht5l5bbxcm0c" path="res://Base/Station.png" id="1_edygm"]
-[ext_resource type="Texture2D" uid="uid://deftw5dkgat36" path="res://Base/MissilesCrate.png" id="2_xgawp"]
-[ext_resource type="Texture2D" uid="uid://c1edxw30iph6w" path="res://Base/BulletsCrate.png" id="3_wnbwn"]
+[ext_resource type="Texture2D" uid="uid://b7knwu30306jn" path="res://Base/Station.png" id="1_edygm"]
+[ext_resource type="Texture2D" uid="uid://crxl0ld1a540w" path="res://Base/MissilesCrate.png" id="2_xgawp"]
+[ext_resource type="Texture2D" uid="uid://dsk85lyr4te44" path="res://Base/BulletsCrate.png" id="3_wnbwn"]
 [ext_resource type="PackedScene" uid="uid://br5fnl4nn8rlj" path="res://Character/Shooter/Shooter.tscn" id="4_xgawp"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xgawp"]

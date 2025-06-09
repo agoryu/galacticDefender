@@ -26,4 +26,5 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 		cartridge.global_position = global_position
 		cartridge.rotation = randi_range(-180, 179)
 		get_parent().add_child(cartridge)
-	queue_free()
+		Game.score += 1
+		queue_free()
