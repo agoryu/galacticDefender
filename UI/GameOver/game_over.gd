@@ -2,6 +2,7 @@ extends Control
 
 func _on_retry_button_up() -> void:
 	get_tree().paused = false
+	Game.life = 10
 	get_tree().reload_current_scene()
 
 func _on_exit_button_up() -> void:
