@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=4 uid="uid://q8j5i05gxix8"]
+[gd_scene load_steps=8 format=4 uid="uid://q8j5i05gxix8"]
 
 [ext_resource type="Texture2D" uid="uid://dd0sd5mdv247" path="res://Level/Background.png" id="1_a526m"]
 [ext_resource type="PackedScene" uid="uid://bvfymy5t32du3" path="res://Level/Spawner/AsteroidSpawner.tscn" id="3_cyxyq"]
