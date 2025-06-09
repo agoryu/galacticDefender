@@ -1,20 +1,46 @@
-[gd_scene load_steps=4 format=3 uid="uid://ksbdxjiwbk84"]
+[gd_scene load_steps=7 format=3 uid="uid://ksbdxjiwbk84"]
 
 [ext_resource type="Texture2D" uid="uid://ht5l5bbxcm0c" path="res://Base/Station.png" id="1_edygm"]
 [ext_resource type="Texture2D" uid="uid://deftw5dkgat36" path="res://Base/MissilesCrate.png" id="2_xgawp"]
 [ext_resource type="Texture2D" uid="uid://c1edxw30iph6w" path="res://Base/BulletsCrate.png" id="3_wnbwn"]
+[ext_resource type="PackedScene" uid="uid://br5fnl4nn8rlj" path="res://Character/Shooter/Shooter.tscn" id="4_xgawp"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xgawp"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wnbwn"]
+bg_color = Color(2.11775e-06, 0.778848, 0.928218, 1)
 
 [node name="Base" type="Node2D"]
 
+[node name="Shooter" parent="." instance=ExtResource("4_xgawp")]
+position = Vector2(-2, 7)
+
 [node name="Station" type="Sprite2D" parent="."]
+scale = Vector2(0.27, 0.27)
 texture = ExtResource("1_edygm")
 
 [node name="MissilesCrate" type="Sprite2D" parent="."]
-position = Vector2(498, 231)
-scale = Vector2(0.786082, 0.729339)
+position = Vector2(130, 61)
+scale = Vector2(0.2, 0.187)
 texture = ExtResource("2_xgawp")
 
-[node name="BulletsCrate" type="Sprite2D" parent="."]
-position = Vector2(-382, 252)
-scale = Vector2(0.678744, 0.736782)
+[node name="BulletsCrate" type="Node2D" parent="."]
+
+[node name="BulletsProgressBar" type="ProgressBar" parent="BulletsCrate"]
+offset_left = -125.0
+offset_top = 47.0
+offset_right = -98.0
+offset_bottom = 92.0
+theme_override_styles/background = SubResource("StyleBoxFlat_xgawp")
+theme_override_styles/fill = SubResource("StyleBoxFlat_wnbwn")
+max_value = 10.0
+step = 1.0
+value = 3.0
+fill_mode = 3
+show_percentage = false
+
+[node name="Sprite" type="Sprite2D" parent="BulletsCrate"]
+position = Vector2(-100, 70)
+scale = Vector2(0.2, 0.2)
 texture = ExtResource("3_wnbwn")
