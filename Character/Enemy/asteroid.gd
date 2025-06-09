@@ -1,8 +1,8 @@
 extends CharacterBody2D
 
-@onready var speed = 2
-@onready var damage = 2
-@onready var life = 1
+@export var speed = 2
+@export var damage = 2
+@export var life = 1
 
 func _physics_process(delta: float) -> void:
 	position.y += speed

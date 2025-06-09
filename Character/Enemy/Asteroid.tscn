@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://dqlyn84713ic"]
 
 [ext_resource type="Script" uid="uid://pyf3l6ev7gx1" path="res://Character/Enemy/asteroid.gd" id="1_1130v"]
-[ext_resource type="Texture2D" uid="uid://cca36ifi80l3e" path="res://icon.svg" id="1_a4umb"]
+[ext_resource type="Texture2D" uid="uid://dclefadx4vye4" path="res://Character/Enemy/Asteroid.png" id="2_1130v"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a4umb"]
 size = Vector2(48, 48)
@@ -14,9 +14,10 @@ collision_layer = 4
 script = ExtResource("1_1130v")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
 position = Vector2(-2.38419e-07, 0)
-scale = Vector2(0.375, 0.375)
-texture = ExtResource("1_a4umb")
+scale = Vector2(4, 4)
+texture = ExtResource("2_1130v")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_a4umb")

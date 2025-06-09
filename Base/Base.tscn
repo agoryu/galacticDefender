@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://ksbdxjiwbk84"]
+
+[ext_resource type="Texture2D" uid="uid://ht5l5bbxcm0c" path="res://Base/Station.png" id="1_edygm"]
+[ext_resource type="Texture2D" uid="uid://deftw5dkgat36" path="res://Base/MissilesCrate.png" id="2_xgawp"]
+[ext_resource type="Texture2D" uid="uid://c1edxw30iph6w" path="res://Base/BulletsCrate.png" id="3_wnbwn"]
+
+[node name="Base" type="Node2D"]
+
+[node name="Station" type="Sprite2D" parent="."]
+texture = ExtResource("1_edygm")
+
+[node name="MissilesCrate" type="Sprite2D" parent="."]
+position = Vector2(498, 231)
+scale = Vector2(0.786082, 0.729339)
+texture = ExtResource("2_xgawp")
+
+[node name="BulletsCrate" type="Sprite2D" parent="."]
+position = Vector2(-382, 252)
+scale = Vector2(0.678744, 0.736782)
+texture = ExtResource("3_wnbwn")
