@@ -1,6 +1,7 @@
 [gd_scene load_steps=7 format=4 uid="uid://q8j5i05gxix8"]
 
-[ext_resource type="Texture2D" uid="uid://dd0sd5mdv247" path="res://Level/Background.png" id="1_a526m"]
+[ext_resource type="Texture2D" uid="uid://c2e230hb3kqas" path="res://Level/Background.png" id="1_a526m"]
+[ext_resource type="Script" uid="uid://b1amb5yof47n" path="res://Level/level.gd" id="1_i5eh5"]
 [ext_resource type="PackedScene" uid="uid://br5fnl4nn8rlj" path="res://Character/Shooter/Shooter.tscn" id="2_r3cbp"]
 [ext_resource type="PackedScene" uid="uid://bvfymy5t32du3" path="res://Level/Spawner/AsteroidSpawner.tscn" id="3_cyxyq"]
 [ext_resource type="PackedScene" uid="uid://ksbdxjiwbk84" path="res://Base/Base.tscn" id="3_i5eh5"]
@@ -24,9 +25,11 @@ texture_region_size = Vector2i(4, 4)
 [sub_resource type="TileSet" id="TileSet_cyxyq"]
 tile_size = Vector2i(4, 4)
 physics_layer_0/collision_layer = 1
+physics_layer_0/collision_mask = 4
 sources/1 = SubResource("TileSetAtlasSource_r3cbp")
 
 [node name="Level" type="Node2D"]
+script = ExtResource("1_i5eh5")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 texture_filter = 1
