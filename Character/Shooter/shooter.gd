@@ -6,20 +6,15 @@ extends Node2D
 @onready var bulletsProgressBar : ProgressBar = $"../BulletsCrate/BulletsProgressBar"
 
 @export var speed = 0.5
-@export var bullets:int = 10
 
 var num_canon = 1
 
-func _ready():
-	bulletsProgressBar.value = bullets
-
 func _physics_process(delta: float) -> void:
 	update_shoot_direction()
-	if bullets > 0:
+	if bulletsProgressBar.value > 0:
 		if Input.is_action_pressed("ui_accept") and fire_timer.is_stopped():
 			var bullet = bullet_constructor.instantiate()
-			bullets -= 1
-			bulletsProgressBar.value = bullets
+			bulletsProgressBar.value -= 1
 			
 			if num_canon % 2 == 0:
 				num_canon = 1
@@ -42,3 +37,9 @@ func get_gamepad_direction():
 	if Input.is_action_pressed("ui_right"):
 		return 1
 	return 0
+
+
+func _on_area_2d_body_entered(body: Node2D) -> void:
+	if body.mun > 0:
+		bulletsProgressBar.value += body.mun
+		body.mun = 0
