@@ -6,9 +6,13 @@
 texture = ExtResource("1_a526m")
 texture_region_size = Vector2i(4, 4)
 0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-2, -2, 2, -2, 2, 2, -2, 2)
 1:0/0 = 0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-2, -2, 2, -2, 2, 2, -2, 2)
 2:0/0 = 0
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-2, -2, 2, -2, 2, 2, -2, 2)
 3:0/0 = 0
+3:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-2, -2, 2, -2, 2, 2, -2, 2)
 0:1/0 = 0
 1:1/0 = 0
 2:1/0 = 0
@@ -16,6 +20,7 @@ texture_region_size = Vector2i(4, 4)
 
 [sub_resource type="TileSet" id="TileSet_cyxyq"]
 tile_size = Vector2i(4, 4)
+physics_layer_0/collision_layer = 1
 sources/1 = SubResource("TileSetAtlasSource_r3cbp")
 
 [node name="Level" type="Node2D"]
