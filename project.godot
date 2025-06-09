@@ -14,3 +14,10 @@ config/name="GalacticDefender"
 run/main_scene="uid://q8j5i05gxix8"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
+
+[layer_names]
+
+2d_physics/layer_1="base"
+2d_physics/layer_2="player"
+2d_physics/layer_3="enemy"
+2d_physics/layer_4="weapon"
