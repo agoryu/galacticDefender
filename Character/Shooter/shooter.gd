@@ -5,22 +5,25 @@ extends Node2D
 @onready var bullet_constructor = preload("res://Character/Shooter/Bullet/Bullet.tscn")
 
 @export var speed = 0.5
+@export var bullets:int = 10
 
 var num_canon = 1
 
 func _physics_process(delta: float) -> void:
 	update_shoot_direction()
-	if Input.is_action_pressed("ui_accept") and fire_timer.is_stopped():
-		var bullet = bullet_constructor.instantiate()
-		if num_canon % 2 == 0:
-			num_canon = 1
-			bullet.global_position = $Canon/Spawner1.global_position
-		else:
-			num_canon += 1
-			bullet.global_position = $Canon/Spawner2.global_position
-		bullet.rotation = $Canon.rotation
-		get_parent().add_child(bullet)
-		fire_timer.start()
+	if bullets > 0:
+		if Input.is_action_pressed("ui_accept") and fire_timer.is_stopped():
+			var bullet = bullet_constructor.instantiate()
+			bullets -= 1
+			if num_canon % 2 == 0:
+				num_canon = 1
+				bullet.global_position = $Canon/Spawner1.global_position
+			else:
+				num_canon += 1
+				bullet.global_position = $Canon/Spawner2.global_position
+			bullet.rotation = $Canon.rotation
+			get_parent().add_child(bullet)
+			fire_timer.start()
 
 func update_shoot_direction():
 	var shoot_direction = get_gamepad_direction()
