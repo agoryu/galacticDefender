@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://bvfymy5t32du3"]
+
+[ext_resource type="Script" uid="uid://ikhmg6854xao" path="res://Level/Spawner/asteroid_spawner.gd" id="1_5u0eu"]
+
+[sub_resource type="Curve2D" id="Curve2D_l0mgy"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1152, 0)
+}
+point_count = 2
+
+[node name="AsteroidSpawner" type="Path2D"]
+curve = SubResource("Curve2D_l0mgy")
+script = ExtResource("1_5u0eu")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="."]
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 3.0
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

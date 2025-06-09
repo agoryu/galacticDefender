@@ -31,10 +31,10 @@ position = Vector2(0, -56)
 shape = SubResource("RectangleShape2D_rf7o0")
 
 [node name="Spawner1" type="Marker2D" parent="Canon"]
-position = Vector2(16, -184)
+position = Vector2(16, -112)
 
 [node name="Spawner2" type="Marker2D" parent="Canon"]
-position = Vector2(-24, -184)
+position = Vector2(-24, -112)
 
 [node name="FireTimer" type="Timer" parent="."]
 wait_time = 2.0
