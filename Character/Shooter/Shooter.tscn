@@ -10,22 +10,21 @@ size = Vector2(16, 128)
 script = ExtResource("1_rf7o0")
 
 [node name="Canon" type="CharacterBody2D" parent="."]
-position = Vector2(0, -64)
 
 [node name="Canon" type="Sprite2D" parent="Canon"]
-position = Vector2(0, -56)
+position = Vector2(0, -115.2)
 scale = Vector2(0.2, 0.2)
 texture = ExtResource("3_3ym74")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Canon"]
-position = Vector2(0, -56)
+position = Vector2(0, -115.2)
 shape = SubResource("RectangleShape2D_rf7o0")
 
 [node name="Spawner1" type="Marker2D" parent="Canon"]
-position = Vector2(16, -112)
+position = Vector2(16, -171.2)
 
 [node name="Spawner2" type="Marker2D" parent="Canon"]
-position = Vector2(-24, -112)
+position = Vector2(-24, -171.2)
 
 [node name="FireTimer" type="Timer" parent="."]
 wait_time = 2.0
