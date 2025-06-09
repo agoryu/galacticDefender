@@ -6,6 +6,8 @@ extends Node2D
 
 @export var speed = 0.5
 
+var num_canon = 1
+
 func _physics_process(delta: float) -> void:
 	update_shoot_direction()
 
@@ -15,7 +17,12 @@ func update_shoot_direction():
 	canon.rotation_degrees = clamp(canon.rotation_degrees, -90, 90)
 	if Input.is_action_pressed("ui_accept") and fire_timer.is_stopped():
 		var bullet = bullet_constructor.instantiate()
-		bullet.global_position = $Canon/Spawner.global_position
+		if num_canon % 2 == 0:
+			num_canon = 1
+			bullet.global_position = $Canon/Spawner1.global_position
+		else:
+			num_canon += 1
+			bullet.global_position = $Canon/Spawner2.global_position
 		bullet.rotation = $Canon.rotation
 		get_parent().add_child(bullet)
 		fire_timer.start()
