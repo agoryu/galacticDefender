@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
 @export var speed = 100
+@export var damage = 1
 
 func _physics_process(delta):
 	var direction = Vector2(sin(rotation), -cos(rotation))
