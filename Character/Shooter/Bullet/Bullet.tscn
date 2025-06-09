@@ -1,23 +1,47 @@
-[gd_scene load_steps=4 format=3 uid="uid://coq5s22vrlyai"]
+[gd_scene load_steps=7 format=3 uid="uid://coq5s22vrlyai"]
 
 [ext_resource type="Script" uid="uid://df0nsonm3tobp" path="res://Character/Shooter/Bullet/bullet.gd" id="1_hi20n"]
-[ext_resource type="Texture2D" uid="uid://cca36ifi80l3e" path="res://icon.svg" id="1_q1sr0"]
+[ext_resource type="Texture2D" uid="uid://beevn1harq4k6" path="res://Character/Shooter/Bullet/Bullet.png" id="3_6impj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hi20n"]
-size = Vector2(20, 34)
+size = Vector2(16, 28)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ulkor"]
+atlas = ExtResource("3_6impj")
+region = Rect2(0, 0, 4, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xgscm"]
+atlas = ExtResource("3_6impj")
+region = Rect2(4, 0, 4, 8)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4wtsg"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ulkor")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xgscm")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
 
 [node name="Bullet" type="CharacterBody2D"]
 script = ExtResource("1_hi20n")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -7)
 shape = SubResource("RectangleShape2D_hi20n")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(0, -8)
-scale = Vector2(0.125, 0.25)
-texture = ExtResource("1_q1sr0")
-
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+position = Vector2(1.69407e-21, -1.19209e-07)
+scale = Vector2(0.8, 1.4)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(0, 2)
+scale = Vector2(4, 4)
+sprite_frames = SubResource("SpriteFrames_4wtsg")
 
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
