@@ -1,18 +1,27 @@
-[gd_scene load_steps=4 format=3 uid="uid://dskxup7m7k18x"]
+[gd_scene load_steps=5 format=3 uid="uid://dskxup7m7k18x"]
 
 [ext_resource type="Script" uid="uid://d37r0ei3u4tdk" path="res://Static/Cartridge/cartridge.gd" id="1_6xw8h"]
-[ext_resource type="Texture2D" uid="uid://bpqucka2k2sfb" path="res://Static/Cartridge/Cartridge.png" id="2_6xw8h"]
+[ext_resource type="Texture2D" uid="uid://5uhuqy3evt2p" path="res://Static/Cartridge/Cartridge.png" id="2_6xw8h"]
+
+[sub_resource type="Environment" id="Environment_6xw8h"]
+glow_enabled = true
+glow_blend_mode = 1
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6xw8h"]
 
 [node name="Cartridge" type="RigidBody2D"]
 collision_layer = 16
+collision_mask = 33
 script = ExtResource("1_6xw8h")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_6xw8h")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_6xw8h")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+self_modulate = Color(2, 2, 2, 1)
 texture_filter = 1
 position = Vector2(-2.38419e-07, 0)
 scale = Vector2(4, 4)

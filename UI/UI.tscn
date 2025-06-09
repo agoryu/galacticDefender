@@ -1,0 +1,34 @@
+[gd_scene load_steps=5 format=3 uid="uid://d14sc7v353sc2"]
+
+[ext_resource type="Script" uid="uid://cit8rn72ls4jg" path="res://UI/ui.gd" id="1_6dd3c"]
+[ext_resource type="PackedScene" uid="uid://ce8kk8otvyquy" path="res://UI/GameOver/GameOver.tscn" id="2_dhe1o"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pa3ot"]
+bg_color = Color(0, 0, 0, 0.607843)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6dd3c"]
+bg_color = Color(0.662745, 0.141176, 0, 1)
+
+[node name="UI" type="CanvasLayer"]
+process_mode = 3
+script = ExtResource("1_6dd3c")
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -258.5
+offset_top = -27.0
+offset_right = 258.5
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/background = SubResource("StyleBoxFlat_pa3ot")
+theme_override_styles/fill = SubResource("StyleBoxFlat_6dd3c")
+step = 1.0
+rounded = true
+show_percentage = false
+
+[node name="GameOver" parent="." instance=ExtResource("2_dhe1o")]
+visible = false

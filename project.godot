@@ -44,3 +44,8 @@ p2_accept={
 2d_physics/layer_3="enemy"
 2d_physics/layer_4="weapon"
 2d_physics/layer_5="cartridge"
+2d_physics/layer_6="canon"
+
+[rendering]
+
+2d/snap/snap_2d_transforms_to_pixel=true
