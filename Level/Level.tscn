@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=4 uid="uid://q8j5i05gxix8"]
 
-[ext_resource type="Texture2D" uid="uid://c2e230hb3kqas" path="res://Level/Background.png" id="1_a526m"]
+[ext_resource type="Texture2D" uid="uid://dd0sd5mdv247" path="res://Level/Background.png" id="1_a526m"]
 [ext_resource type="PackedScene" uid="uid://br5fnl4nn8rlj" path="res://Character/Shooter/Shooter.tscn" id="2_r3cbp"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_r3cbp"]
