@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://dqlyn84713ic"]
 
 [ext_resource type="Script" uid="uid://pyf3l6ev7gx1" path="res://Character/Enemy/asteroid.gd" id="1_1130v"]
-[ext_resource type="Texture2D" uid="uid://ceh5vnxxlp4tg" path="res://Character/Enemy/Asteroid.png" id="2_1130v"]
+[ext_resource type="Texture2D" uid="uid://dclefadx4vye4" path="res://Character/Enemy/Asteroid.png" id="2_1130v"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a4umb"]
 size = Vector2(48, 48)
