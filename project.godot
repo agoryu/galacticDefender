@@ -11,5 +11,6 @@ config_version=5
 [application]
 
 config/name="GalacticDefender"
+run/main_scene="uid://q8j5i05gxix8"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
