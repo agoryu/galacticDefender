@@ -7,14 +7,15 @@
 [node name="Base" type="Node2D"]
 
 [node name="Station" type="Sprite2D" parent="."]
+scale = Vector2(0.27, 0.27)
 texture = ExtResource("1_edygm")
 
 [node name="MissilesCrate" type="Sprite2D" parent="."]
-position = Vector2(498, 231)
-scale = Vector2(0.786082, 0.729339)
+position = Vector2(130, 61)
+scale = Vector2(0.2, 0.187)
 texture = ExtResource("2_xgawp")
 
 [node name="BulletsCrate" type="Sprite2D" parent="."]
-position = Vector2(-382, 252)
-scale = Vector2(0.678744, 0.736782)
+position = Vector2(-100, 70)
+scale = Vector2(0.2, 0.2)
 texture = ExtResource("3_wnbwn")

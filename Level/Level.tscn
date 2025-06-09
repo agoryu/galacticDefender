@@ -1,6 +1,6 @@
-[gd_scene load_steps=7 format=4 uid="uid://q8j5i05gxix8"]
+[gd_scene load_steps=8 format=4 uid="uid://q8j5i05gxix8"]
 
-[ext_resource type="Texture2D" uid="uid://c2e230hb3kqas" path="res://Level/Background.png" id="1_a526m"]
+[ext_resource type="Texture2D" uid="uid://dd0sd5mdv247" path="res://Level/Background.png" id="1_a526m"]
 [ext_resource type="Script" uid="uid://b1amb5yof47n" path="res://Level/level.gd" id="1_i5eh5"]
 [ext_resource type="PackedScene" uid="uid://br5fnl4nn8rlj" path="res://Character/Shooter/Shooter.tscn" id="2_r3cbp"]
 [ext_resource type="PackedScene" uid="uid://bvfymy5t32du3" path="res://Level/Spawner/AsteroidSpawner.tscn" id="3_cyxyq"]
@@ -42,6 +42,5 @@ position = Vector2(582, 531)
 
 [node name="Base" parent="." instance=ExtResource("3_i5eh5")]
 position = Vector2(589, 511)
-scale = Vector2(0.27, 0.27)
 
 [node name="AsteroidSpawner" parent="." instance=ExtResource("3_cyxyq")]
