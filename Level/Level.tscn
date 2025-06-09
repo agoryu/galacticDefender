@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=4 uid="uid://q8j5i05gxix8"]
+[gd_scene load_steps=6 format=4 uid="uid://q8j5i05gxix8"]
 
 [ext_resource type="Texture2D" uid="uid://c2e230hb3kqas" path="res://Level/Background.png" id="1_a526m"]
 [ext_resource type="PackedScene" uid="uid://br5fnl4nn8rlj" path="res://Character/Shooter/Shooter.tscn" id="2_r3cbp"]
+[ext_resource type="PackedScene" uid="uid://bvfymy5t32du3" path="res://Level/Spawner/AsteroidSpawner.tscn" id="3_cyxyq"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_r3cbp"]
 texture = ExtResource("1_a526m")
@@ -34,3 +35,5 @@ tile_set = SubResource("TileSet_cyxyq")
 
 [node name="Shooter" parent="." instance=ExtResource("2_r3cbp")]
 position = Vector2(582, 531)
+
+[node name="AsteroidSpawner" parent="." instance=ExtResource("3_cyxyq")]

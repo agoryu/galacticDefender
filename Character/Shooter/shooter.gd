@@ -10,11 +10,6 @@ var num_canon = 1
 
 func _physics_process(delta: float) -> void:
 	update_shoot_direction()
-
-func update_shoot_direction():
-	var shoot_direction = get_gamepad_direction()
-	canon.rotation_degrees += speed * shoot_direction
-	canon.rotation_degrees = clamp(canon.rotation_degrees, -90, 90)
 	if Input.is_action_pressed("ui_accept") and fire_timer.is_stopped():
 		var bullet = bullet_constructor.instantiate()
 		if num_canon % 2 == 0:
@@ -26,6 +21,11 @@ func update_shoot_direction():
 		bullet.rotation = $Canon.rotation
 		get_parent().add_child(bullet)
 		fire_timer.start()
+
+func update_shoot_direction():
+	var shoot_direction = get_gamepad_direction()
+	canon.rotation_degrees += speed * shoot_direction
+	canon.rotation_degrees = clamp(canon.rotation_degrees, -90, 90)
 
 func get_gamepad_direction():
 	if Input.is_action_pressed("ui_left"):
