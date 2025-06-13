@@ -1,6 +1,6 @@
-[gd_scene load_steps=8 format=4 uid="uid://q8j5i05gxix8"]
+[gd_scene load_steps=10 format=4 uid="uid://q8j5i05gxix8"]
 
-[ext_resource type="Texture2D" uid="uid://c2e230hb3kqas" path="res://Level/Background.png" id="1_a526m"]
+[ext_resource type="Texture2D" uid="uid://5xk1gi6an5ws" path="res://Level/Background.png" id="1_a526m"]
 [ext_resource type="PackedScene" uid="uid://bvfymy5t32du3" path="res://Level/Spawner/AsteroidSpawner.tscn" id="3_cyxyq"]
 [ext_resource type="PackedScene" uid="uid://ksbdxjiwbk84" path="res://Base/Base.tscn" id="3_i5eh5"]
 [ext_resource type="PackedScene" uid="uid://bipb6s1qiv8kd" path="res://Character/Worker/Worker.tscn" id="5_5noo7"]
@@ -28,6 +28,12 @@ physics_layer_0/collision_layer = 1
 physics_layer_0/collision_mask = 4
 sources/1 = SubResource("TileSetAtlasSource_r3cbp")
 
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_u0wck"]
+normal = Vector2(-1, 0)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_5noo7"]
+normal = Vector2(1, 0)
+
 [node name="Level" type="Node2D"]
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
@@ -43,5 +49,22 @@ position = Vector2(589, 511)
 
 [node name="Worker" parent="." instance=ExtResource("5_5noo7")]
 position = Vector2(160, 544)
+collision_mask = 129
 
 [node name="UI" parent="." instance=ExtResource("5_u0wck")]
+
+[node name="Borders" type="StaticBody2D" parent="."]
+collision_layer = 128
+collision_mask = 0
+
+[node name="Right" type="CollisionShape2D" parent="Borders"]
+light_mask = 2
+visibility_layer = 0
+position = Vector2(1149, 297)
+shape = SubResource("WorldBoundaryShape2D_u0wck")
+
+[node name="Left" type="CollisionShape2D" parent="Borders"]
+light_mask = 2
+visibility_layer = 0
+position = Vector2(0, 295)
+shape = SubResource("WorldBoundaryShape2D_5noo7")

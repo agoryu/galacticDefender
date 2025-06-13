@@ -1,23 +1,25 @@
 [gd_scene load_steps=5 format=3 uid="uid://dskxup7m7k18x"]
 
 [ext_resource type="Script" uid="uid://d37r0ei3u4tdk" path="res://Static/Cartridge/cartridge.gd" id="1_6xw8h"]
-[ext_resource type="Texture2D" uid="uid://5uhuqy3evt2p" path="res://Static/Cartridge/Cartridge.png" id="2_6xw8h"]
+[ext_resource type="Texture2D" uid="uid://cdua6ygt245cf" path="res://Static/Cartridge/Cartridge.png" id="2_6xw8h"]
 
 [sub_resource type="Environment" id="Environment_6xw8h"]
 glow_enabled = true
 glow_blend_mode = 1
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6xw8h"]
+size = Vector2(23, 39)
 
 [node name="Cartridge" type="RigidBody2D"]
 collision_layer = 16
-collision_mask = 33
+collision_mask = 49
 script = ExtResource("1_6xw8h")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_6xw8h")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, -0.5)
 shape = SubResource("RectangleShape2D_6xw8h")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

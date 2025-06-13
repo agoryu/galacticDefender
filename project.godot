@@ -46,6 +46,10 @@ p2_accept={
 2d_physics/layer_5="cartridge"
 2d_physics/layer_6="canon"
 
+[physics]
+
+2d/default_gravity=526.826
+
 [rendering]
 
 2d/snap/snap_2d_transforms_to_pixel=true
