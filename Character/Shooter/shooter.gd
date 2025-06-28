@@ -6,6 +6,9 @@ extends Node2D
 @onready var bulletsProgressBar : ProgressBar = $"../BulletsCrate/BulletsProgressBar"
 
 @export var speed = 0.5
+@export var bonus_speed = 0.2
+@export var bonus_speed_fire = 0.5
+@export var particles : GPUParticles2D
 
 var num_canon = 1
 
@@ -40,6 +43,19 @@ func get_gamepad_direction():
 
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
-	if body.mun > 0:
-		bulletsProgressBar.value += body.mun
-		body.mun = 0
+	if body.reserve_bar.value > 0:
+		bulletsProgressBar.value += body.reserve_bar.value
+		body.reserve_bar.value = 0
+
+func _on_boost_station_area_body_entered(body: Node2D) -> void:
+	speed += bonus_speed
+	fire_timer.wait_time -= bonus_speed_fire
+	modulate = Color(1., 1., 0.3)
+	particles.modulate = Color(1., 1., 0.5)
+
+
+func _on_boost_station_area_body_exited(body: Node2D) -> void:
+	speed -= bonus_speed
+	fire_timer.wait_time += bonus_speed_fire
+	modulate = Color(1., 1., 1.)
+	particles.modulate = Color(1., 1., 1.)

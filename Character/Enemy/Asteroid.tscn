@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://dqlyn84713ic"]
+[gd_scene load_steps=6 format=3 uid="uid://dqlyn84713ic"]
 
 [ext_resource type="Script" uid="uid://pyf3l6ev7gx1" path="res://Character/Enemy/asteroid.gd" id="1_1130v"]
-[ext_resource type="Texture2D" uid="uid://c68yrwfaiod15" path="res://Character/Enemy/Asteroid.png" id="2_1130v"]
+[ext_resource type="Texture2D" uid="uid://ceh5vnxxlp4tg" path="res://Character/Enemy/Asteroid.png" id="2_1130v"]
+[ext_resource type="Texture2D" uid="uid://601bj5r4rfou" path="res://Character/Enemy/fire.png" id="3_tb1hm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a4umb"]
 size = Vector2(48, 48)
@@ -13,6 +14,12 @@ size = Vector2(48, 48)
 collision_layer = 4
 collision_mask = 0
 script = ExtResource("1_1130v")
+
+[node name="Fire" type="Sprite2D" parent="."]
+position = Vector2(0, 7.62939e-06)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("3_tb1hm")
+offset = Vector2(0, 250)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1

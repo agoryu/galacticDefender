@@ -1,13 +1,13 @@
 [gd_scene load_steps=13 format=4 uid="uid://q8j5i05gxix8"]
 
-[ext_resource type="Texture2D" uid="uid://be4idprf8av5j" path="res://Level/Sky.png" id="1_6lumq"]
-[ext_resource type="Texture2D" uid="uid://5xk1gi6an5ws" path="res://Level/Background.png" id="1_a526m"]
-[ext_resource type="Texture2D" uid="uid://bnx3h4cw2hyac" path="res://Level/Mountains.png" id="2_chl2c"]
+[ext_resource type="Texture2D" uid="uid://bemn855rxskx0" path="res://Level/Sky.png" id="1_6lumq"]
+[ext_resource type="Texture2D" uid="uid://c2e230hb3kqas" path="res://Level/Background.png" id="1_a526m"]
+[ext_resource type="Texture2D" uid="uid://b5o4il1d5cjew" path="res://Level/Mountains.png" id="2_chl2c"]
 [ext_resource type="PackedScene" uid="uid://bvfymy5t32du3" path="res://Level/Spawner/AsteroidSpawner.tscn" id="3_cyxyq"]
 [ext_resource type="PackedScene" uid="uid://ksbdxjiwbk84" path="res://Base/Base.tscn" id="3_i5eh5"]
 [ext_resource type="PackedScene" uid="uid://bipb6s1qiv8kd" path="res://Character/Worker/Worker.tscn" id="5_5noo7"]
 [ext_resource type="PackedScene" uid="uid://d14sc7v353sc2" path="res://UI/UI.tscn" id="5_u0wck"]
-[ext_resource type="Texture2D" uid="uid://dvojqltedftes" path="res://Level/Ground.png" id="8_wp1u0"]
+[ext_resource type="Texture2D" uid="uid://dk3ct5wk4ffkc" path="res://Level/Ground.png" id="8_wp1u0"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_r3cbp"]
 texture = ExtResource("1_a526m")

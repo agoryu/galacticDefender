@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://ksbdxjiwbk84"]
+[gd_scene load_steps=14 format=3 uid="uid://ksbdxjiwbk84"]
 
-[ext_resource type="Texture2D" uid="uid://ronsogamn8ci" path="res://Base/Station.png" id="1_edygm"]
-[ext_resource type="Texture2D" uid="uid://rv7q863lgef8" path="res://Base/MissilesCrate.png" id="2_xgawp"]
-[ext_resource type="Texture2D" uid="uid://cywi57287mnsf" path="res://Base/BulletsCrate.png" id="3_wnbwn"]
+[ext_resource type="Texture2D" uid="uid://b7knwu30306jn" path="res://Base/Station.png" id="1_edygm"]
+[ext_resource type="Texture2D" uid="uid://crxl0ld1a540w" path="res://Base/MissilesCrate.png" id="2_xgawp"]
+[ext_resource type="Texture2D" uid="uid://dsk85lyr4te44" path="res://Base/BulletsCrate.png" id="3_wnbwn"]
 [ext_resource type="PackedScene" uid="uid://br5fnl4nn8rlj" path="res://Character/Shooter/Shooter.tscn" id="4_xgawp"]
+[ext_resource type="Texture2D" uid="uid://cca36ifi80l3e" path="res://icon.svg" id="5_wnbwn"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_xgawp"]
 radius = 180.003
@@ -17,6 +18,25 @@ bg_color = Color(2.11775e-06, 0.778848, 0.928218, 1)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xgawp"]
 size = Vector2(64, 64)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wnbwn"]
+size = Vector2(64, 12)
+
+[sub_resource type="Curve" id="Curve_wnbwn"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.986667, 0.483146), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_vnn1l"]
+curve = SubResource("Curve_wnbwn")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_i5sb8"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(30, 1, 1)
+scale_min = 5.0
+scale_max = 5.0
+scale_curve = SubResource("CurveTexture_vnn1l")
+color = Color(0.054902, 0.956863, 1, 1)
+
 [node name="Base" type="StaticBody2D"]
 collision_layer = 32
 collision_mask = 0
@@ -26,8 +46,9 @@ position = Vector2(-4, 47)
 scale = Vector2(0.639998, 0.719999)
 shape = SubResource("CircleShape2D_xgawp")
 
-[node name="Shooter" parent="." instance=ExtResource("4_xgawp")]
+[node name="Shooter" parent="." node_paths=PackedStringArray("particles") instance=ExtResource("4_xgawp")]
 position = Vector2(-2, 7)
+particles = NodePath("../BoostStation/GPUParticles2D")
 
 [node name="Station" type="Sprite2D" parent="."]
 scale = Vector2(0.27, 0.27)
@@ -66,4 +87,29 @@ collision_mask = 2
 position = Vector2(-112, 72)
 shape = SubResource("RectangleShape2D_xgawp")
 
+[node name="BoostStation" type="Node2D" parent="."]
+z_index = 10
+
+[node name="Sprite2D" type="Sprite2D" parent="BoostStation"]
+self_modulate = Color(0, 0, 0.960784, 1)
+position = Vector2(224, 72)
+scale = Vector2(0.5, 0.125)
+texture = ExtResource("5_wnbwn")
+
+[node name="BoostStationArea" type="Area2D" parent="BoostStation"]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BoostStation/BoostStationArea"]
+position = Vector2(224, 72)
+shape = SubResource("RectangleShape2D_wnbwn")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="BoostStation"]
+position = Vector2(224, 72)
+amount = 12
+lifetime = 4.0
+process_material = SubResource("ParticleProcessMaterial_i5sb8")
+
 [connection signal="body_entered" from="BulletsCrate/Area2D" to="Shooter" method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="BoostStation/BoostStationArea" to="Shooter" method="_on_boost_station_area_body_entered"]
+[connection signal="body_exited" from="BoostStation/BoostStationArea" to="Shooter" method="_on_boost_station_area_body_exited"]
