@@ -1,8 +1,8 @@
 [gd_scene load_steps=14 format=3 uid="uid://ksbdxjiwbk84"]
 
-[ext_resource type="Texture2D" uid="uid://b7knwu30306jn" path="res://Base/Station.png" id="1_edygm"]
-[ext_resource type="Texture2D" uid="uid://crxl0ld1a540w" path="res://Base/MissilesCrate.png" id="2_xgawp"]
-[ext_resource type="Texture2D" uid="uid://dsk85lyr4te44" path="res://Base/BulletsCrate.png" id="3_wnbwn"]
+[ext_resource type="Texture2D" uid="uid://ronsogamn8ci" path="res://Base/Station.png" id="1_edygm"]
+[ext_resource type="Texture2D" uid="uid://rv7q863lgef8" path="res://Base/MissilesCrate.png" id="2_xgawp"]
+[ext_resource type="Texture2D" uid="uid://cywi57287mnsf" path="res://Base/BulletsCrate.png" id="3_wnbwn"]
 [ext_resource type="PackedScene" uid="uid://br5fnl4nn8rlj" path="res://Character/Shooter/Shooter.tscn" id="4_xgawp"]
 [ext_resource type="Texture2D" uid="uid://cca36ifi80l3e" path="res://icon.svg" id="5_wnbwn"]
 
@@ -55,11 +55,13 @@ scale = Vector2(0.27, 0.27)
 texture = ExtResource("1_edygm")
 
 [node name="MissilesCrate" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(130, 61)
 scale = Vector2(0.2, 0.187)
 texture = ExtResource("2_xgawp")
 
 [node name="BulletsCrate" type="Node2D" parent="."]
+position = Vector2(-16, -18)
 
 [node name="BulletsProgressBar" type="ProgressBar" parent="BulletsCrate"]
 offset_left = -125.0
@@ -89,9 +91,11 @@ shape = SubResource("RectangleShape2D_xgawp")
 
 [node name="BoostStation" type="Node2D" parent="."]
 z_index = 10
+position = Vector2(-12, 4)
 
 [node name="Sprite2D" type="Sprite2D" parent="BoostStation"]
 self_modulate = Color(0, 0, 0.960784, 1)
+z_as_relative = false
 position = Vector2(224, 72)
 scale = Vector2(0.5, 0.125)
 texture = ExtResource("5_wnbwn")

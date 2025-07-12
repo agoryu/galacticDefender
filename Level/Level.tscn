@@ -1,13 +1,15 @@
-[gd_scene load_steps=13 format=4 uid="uid://q8j5i05gxix8"]
+[gd_scene load_steps=18 format=4 uid="uid://q8j5i05gxix8"]
 
-[ext_resource type="Texture2D" uid="uid://bemn855rxskx0" path="res://Level/Sky.png" id="1_6lumq"]
-[ext_resource type="Texture2D" uid="uid://c2e230hb3kqas" path="res://Level/Background.png" id="1_a526m"]
-[ext_resource type="Texture2D" uid="uid://b5o4il1d5cjew" path="res://Level/Mountains.png" id="2_chl2c"]
+[ext_resource type="Texture2D" uid="uid://be4idprf8av5j" path="res://Level/Sky.png" id="1_6lumq"]
+[ext_resource type="Texture2D" uid="uid://5xk1gi6an5ws" path="res://Level/Background.png" id="1_a526m"]
+[ext_resource type="Texture2D" uid="uid://bnx3h4cw2hyac" path="res://Level/Mountains.png" id="2_chl2c"]
+[ext_resource type="Texture2D" uid="uid://cu8fhimostnm4" path="res://Level/Planet.png" id="2_wp1u0"]
 [ext_resource type="PackedScene" uid="uid://bvfymy5t32du3" path="res://Level/Spawner/AsteroidSpawner.tscn" id="3_cyxyq"]
 [ext_resource type="PackedScene" uid="uid://ksbdxjiwbk84" path="res://Base/Base.tscn" id="3_i5eh5"]
 [ext_resource type="PackedScene" uid="uid://bipb6s1qiv8kd" path="res://Character/Worker/Worker.tscn" id="5_5noo7"]
 [ext_resource type="PackedScene" uid="uid://d14sc7v353sc2" path="res://UI/UI.tscn" id="5_u0wck"]
-[ext_resource type="Texture2D" uid="uid://dk3ct5wk4ffkc" path="res://Level/Ground.png" id="8_wp1u0"]
+[ext_resource type="Texture2D" uid="uid://dvojqltedftes" path="res://Level/Ground.png" id="8_wp1u0"]
+[ext_resource type="Texture2D" uid="uid://cywi57287mnsf" path="res://Base/BulletsCrate.png" id="10_wp1u0"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_r3cbp"]
 texture = ExtResource("1_a526m")
@@ -37,17 +39,34 @@ normal = Vector2(-1, 0)
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_5noo7"]
 normal = Vector2(1, 0)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6fg3j"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2ld0w"]
+bg_color = Color(2.11775e-06, 0.778848, 0.928218, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_32x38"]
+size = Vector2(64, 64)
+
 [node name="Level" type="Node2D"]
 
-[node name="Sky" type="Sprite2D" parent="."]
+[node name="Background" type="Node2D" parent="."]
+
+[node name="Sky" type="Sprite2D" parent="Background"]
 texture_filter = 1
-position = Vector2(576, 237)
+position = Vector2(576, 324)
 scale = Vector2(1.8, 1.8)
 texture = ExtResource("1_6lumq")
 
-[node name="Background" type="Sprite2D" parent="."]
+[node name="Planet" type="Sprite2D" parent="Background"]
 texture_filter = 1
-position = Vector2(576, 570)
+position = Vector2(110, 492)
+scale = Vector2(1.8, 1.8)
+texture = ExtResource("2_wp1u0")
+
+[node name="Mountains" type="Sprite2D" parent="Background"]
+texture_filter = 1
+position = Vector2(576, 571)
 scale = Vector2(1.8, 1.8)
 texture = ExtResource("2_chl2c")
 
@@ -90,3 +109,31 @@ texture_filter = 1
 position = Vector2(576, 616)
 scale = Vector2(1.8, 1.8)
 texture = ExtResource("8_wp1u0")
+
+[node name="BulletsCrate" type="Node2D" parent="."]
+
+[node name="BulletsProgressBar" type="ProgressBar" parent="BulletsCrate"]
+offset_left = -125.0
+offset_top = 47.0
+offset_right = -98.0
+offset_bottom = 92.0
+theme_override_styles/background = SubResource("StyleBoxFlat_6fg3j")
+theme_override_styles/fill = SubResource("StyleBoxFlat_2ld0w")
+max_value = 10.0
+step = 1.0
+value = 10.0
+fill_mode = 3
+show_percentage = false
+
+[node name="Sprite" type="Sprite2D" parent="BulletsCrate"]
+position = Vector2(-100, 70)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("10_wp1u0")
+
+[node name="Area2D" type="Area2D" parent="BulletsCrate"]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BulletsCrate/Area2D"]
+position = Vector2(-112, 72)
+shape = SubResource("RectangleShape2D_32x38")
