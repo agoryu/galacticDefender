@@ -7,8 +7,9 @@
 glow_enabled = true
 glow_blend_mode = 1
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_6xw8h"]
-size = Vector2(23, 39)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6xw8h"]
+radius = 12.0
+height = 40.0
 
 [node name="Cartridge" type="RigidBody2D"]
 collision_layer = 16
@@ -18,13 +19,12 @@ script = ExtResource("1_6xw8h")
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_6xw8h")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-0.5, -0.5)
-shape = SubResource("RectangleShape2D_6xw8h")
-
 [node name="Sprite2D" type="Sprite2D" parent="."]
 self_modulate = Color(2, 2, 2, 1)
 texture_filter = 1
 position = Vector2(-2.38419e-07, 0)
 scale = Vector2(4, 4)
 texture = ExtResource("2_6xw8h")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_6xw8h")

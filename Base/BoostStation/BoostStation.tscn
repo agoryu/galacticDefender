@@ -1,0 +1,103 @@
+[gd_scene load_steps=12 format=3 uid="uid://c6mh7y2twxth0"]
+
+[ext_resource type="Texture2D" uid="uid://dcbprlk518ouv" path="res://Base/BoostStation/BoostStation.png" id="1_ortar"]
+[ext_resource type="Script" uid="uid://pvyucmik5nql" path="res://Base/BoostStation/BoostStationAnimation.gd" id="2_rdyqo"]
+
+[sub_resource type="Animation" id="Animation_vnn1l"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0.52549)]
+}
+
+[sub_resource type="Animation" id="Animation_wnbwn"]
+resource_name = "Vibration"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.666667, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0.333333), Color(1, 1, 1, 0.494118), Color(1, 1, 1, 0.333333)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_i5sb8"]
+_data = {
+&"RESET": SubResource("Animation_vnn1l"),
+&"Vibration": SubResource("Animation_wnbwn")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wnbwn"]
+size = Vector2(64, 12)
+
+[sub_resource type="Curve" id="Curve_vnn1l"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.986175, 0.0224719), -3.04775, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_i5sb8"]
+curve = SubResource("Curve_vnn1l")
+
+[sub_resource type="Curve" id="Curve_wnbwn"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.986667, 0.483146), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_vnn1l"]
+curve = SubResource("Curve_wnbwn")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_i5sb8"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(30, 1, 1)
+scale_min = 5.0
+scale_max = 5.0
+scale_curve = SubResource("CurveTexture_vnn1l")
+color = Color(0.6528, 0.96, 0.73984, 1)
+alpha_curve = SubResource("CurveTexture_i5sb8")
+
+[node name="BoostStation" type="Node2D"]
+z_index = 10
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+self_modulate = Color(1, 1, 1, 0.52549)
+z_as_relative = false
+texture_filter = 1
+position = Vector2(224, 23.5932)
+scale = Vector2(1.8, 1.8)
+texture = ExtResource("1_ortar")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../Sprite2D")
+libraries = {
+&"": SubResource("AnimationLibrary_i5sb8")
+}
+script = ExtResource("2_rdyqo")
+
+[node name="BoostStationArea" type="Area2D" parent="."]
+position = Vector2(0, -12)
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BoostStationArea"]
+position = Vector2(224, 72)
+shape = SubResource("RectangleShape2D_wnbwn")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+z_as_relative = false
+position = Vector2(224, 63)
+amount = 16
+lifetime = 4.0
+speed_scale = 2.0
+process_material = SubResource("ParticleProcessMaterial_i5sb8")
