@@ -10,7 +10,7 @@ func _ready():
 	Game.game_over.connect(_game_over)
 	Game.update_score.connect(_update_score)
 	
-func _updateLife():
+func _updateLife(diff: int):
 	lifeBar.value = Game.life
 	
 func _game_over():

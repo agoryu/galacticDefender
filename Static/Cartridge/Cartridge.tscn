@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://dskxup7m7k18x"]
 
 [ext_resource type="Script" uid="uid://d37r0ei3u4tdk" path="res://Static/Cartridge/cartridge.gd" id="1_6xw8h"]
-[ext_resource type="Texture2D" uid="uid://cdua6ygt245cf" path="res://Static/Cartridge/Cartridge.png" id="2_6xw8h"]
+[ext_resource type="Texture2D" uid="uid://5uhuqy3evt2p" path="res://Static/Cartridge/Cartridge.png" id="2_6xw8h"]
 
 [sub_resource type="Environment" id="Environment_6xw8h"]
 glow_enabled = true
@@ -23,7 +23,7 @@ environment = SubResource("Environment_6xw8h")
 self_modulate = Color(2, 2, 2, 1)
 texture_filter = 1
 position = Vector2(-2.38419e-07, 0)
-scale = Vector2(4, 4)
+scale = Vector2(2, 2)
 texture = ExtResource("2_6xw8h")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

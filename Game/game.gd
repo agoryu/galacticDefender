@@ -7,10 +7,12 @@ signal update_score
 @export var life = 10 : set = _setLife
 
 var score = 0 : set = _setScore
+var is_observe = false
 
 func _setLife(value):
+	var diff = life - value
 	life = value
-	emit_signal("updateLife")
+	emit_signal("updateLife", diff)
 	if value <= 0:
 		emit_signal("game_over")
 		

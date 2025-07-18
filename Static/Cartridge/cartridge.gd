@@ -1,3 +1,3 @@
 extends RigidBody2D
 
-@export var value = 2
+@export var value = 5

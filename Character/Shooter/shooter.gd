@@ -15,7 +15,7 @@ var num_canon = 1
 func _physics_process(delta: float) -> void:
 	update_shoot_direction()
 	if bulletsProgressBar.value > 0:
-		if Input.is_action_pressed("ui_accept") and fire_timer.is_stopped():
+		if Input.is_action_pressed("p1_accept") and fire_timer.is_stopped():
 			var bullet = bullet_constructor.instantiate()
 			bulletsProgressBar.value -= 1
 			
@@ -28,6 +28,8 @@ func _physics_process(delta: float) -> void:
 			bullet.rotation = $Canon.rotation
 			get_tree().root.add_child(bullet)
 			fire_timer.start()
+			
+	$Canon/Line2D.visible = Game.is_observe
 
 func update_shoot_direction():
 	var shoot_direction = get_gamepad_direction()
@@ -35,9 +37,9 @@ func update_shoot_direction():
 	canon.rotation_degrees = clamp(canon.rotation_degrees, -90, 90)
 
 func get_gamepad_direction():
-	if Input.is_action_pressed("ui_left"):
+	if Input.is_action_pressed("p1_left"):
 		return -1
-	if Input.is_action_pressed("ui_right"):
+	if Input.is_action_pressed("p1_right"):
 		return 1
 	return 0
 

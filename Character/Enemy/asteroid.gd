@@ -3,7 +3,7 @@ extends CharacterBody2D
 @export var speed = 100
 @export var rotationSpeed = 0.1
 @export var damage = 1
-@export var life = 1
+@export var life = 3
 @export var orientation = 0.6
 @export var fire_scale = 1.0
 
@@ -25,7 +25,7 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
-	queue_free()
+	$Timer.start()
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	Game.life -= damage
@@ -45,3 +45,11 @@ func anim_engine():
 			fire_step = 0.01
 		fire_scale += fire_step
 		fire.scale = Vector2.ONE * 0.15 * fire_scale
+
+func _on_timer_timeout() -> void:
+	if not visible:
+		queue_free()
+
+func _on_visible_on_screen_notifier_2d_screen_entered() -> void:
+	if not $Timer.is_stopped():
+		$Timer.stop()
