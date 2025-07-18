@@ -1,10 +1,12 @@
-[gd_scene load_steps=16 format=3 uid="uid://ksbdxjiwbk84"]
+[gd_scene load_steps=19 format=3 uid="uid://ksbdxjiwbk84"]
 
-[ext_resource type="Texture2D" uid="uid://ronsogamn8ci" path="res://Base/Station.png" id="1_edygm"]
-[ext_resource type="Texture2D" uid="uid://rv7q863lgef8" path="res://Base/MissilesCrate.png" id="2_xgawp"]
-[ext_resource type="Texture2D" uid="uid://cywi57287mnsf" path="res://Base/BulletsCrate.png" id="3_wnbwn"]
+[ext_resource type="Texture2D" uid="uid://b7knwu30306jn" path="res://Base/Station.png" id="1_edygm"]
+[ext_resource type="Texture2D" uid="uid://crxl0ld1a540w" path="res://Base/MissilesCrate.png" id="2_xgawp"]
+[ext_resource type="Texture2D" uid="uid://dsk85lyr4te44" path="res://Base/BulletsCrate.png" id="3_wnbwn"]
 [ext_resource type="PackedScene" uid="uid://br5fnl4nn8rlj" path="res://Character/Shooter/Shooter.tscn" id="4_xgawp"]
-[ext_resource type="Texture2D" uid="uid://dcbprlk518ouv" path="res://Level/Portal.png" id="5_wnbwn"]
+[ext_resource type="Texture2D" uid="uid://dff7ikt1w7el5" path="res://Level/Portal.png" id="5_wnbwn"]
+[ext_resource type="Script" uid="uid://b6whkugpl70el" path="res://Base/telescop.gd" id="6_i5sb8"]
+[ext_resource type="Texture2D" uid="uid://cca36ifi80l3e" path="res://icon.svg" id="6_vnn1l"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_xgawp"]
 radius = 180.003
@@ -45,6 +47,9 @@ scale_curve = SubResource("CurveTexture_vnn1l")
 color = Color(0.6528, 0.96, 0.73984, 1)
 alpha_curve = SubResource("CurveTexture_i5sb8")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vnn1l"]
+size = Vector2(32, 96)
+
 [node name="Base" type="StaticBody2D"]
 collision_layer = 32
 collision_mask = 0
@@ -56,6 +61,8 @@ shape = SubResource("CircleShape2D_xgawp")
 
 [node name="Shooter" parent="." node_paths=PackedStringArray("particles") instance=ExtResource("4_xgawp")]
 position = Vector2(-2, 7)
+bonus_speed = 0.4
+bonus_speed_fire = 0.8
 particles = NodePath("../BoostStation/GPUParticles2D")
 
 [node name="Station" type="Sprite2D" parent="."]
@@ -126,6 +133,23 @@ lifetime = 4.0
 speed_scale = 2.0
 process_material = SubResource("ParticleProcessMaterial_i5sb8")
 
+[node name="Telescop" type="Node2D" parent="."]
+position = Vector2(-320, 40)
+script = ExtResource("6_i5sb8")
+
+[node name="Sprite2D" type="Sprite2D" parent="Telescop"]
+scale = Vector2(0.5, 0.8)
+texture = ExtResource("6_vnn1l")
+
+[node name="Area2D" type="Area2D" parent="Telescop"]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Telescop/Area2D"]
+shape = SubResource("RectangleShape2D_vnn1l")
+
 [connection signal="body_entered" from="BulletsCrate/Area2D" to="Shooter" method="_on_area_2d_body_entered"]
 [connection signal="body_entered" from="BoostStation/BoostStationArea" to="Shooter" method="_on_boost_station_area_body_entered"]
 [connection signal="body_exited" from="BoostStation/BoostStationArea" to="Shooter" method="_on_boost_station_area_body_exited"]
+[connection signal="body_entered" from="Telescop/Area2D" to="Telescop" method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Telescop/Area2D" to="Telescop" method="_on_area_2d_body_exited"]
