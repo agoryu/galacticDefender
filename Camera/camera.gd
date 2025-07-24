@@ -26,7 +26,7 @@ func _process(delta) -> void:
 		tween.tween_property(self, "zoom", Vector2(1., 1.), 0.5)
 	if not Game.is_observe and zoom.x < 1.4:
 		var tween = create_tween()
-		tween.tween_property(self, "zoom", Vector2(1.5, 1.5), 0.5)
+		tween.tween_property(self, "zoom", Vector2(1.5, 1.5), 2.)
 
 func _update_life(diff: int):
 	if diff > 0:

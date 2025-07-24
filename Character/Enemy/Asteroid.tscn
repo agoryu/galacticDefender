@@ -1,9 +1,9 @@
 [gd_scene load_steps=7 format=3 uid="uid://dqlyn84713ic"]
 
 [ext_resource type="Script" uid="uid://pyf3l6ev7gx1" path="res://Character/Enemy/asteroid.gd" id="1_1130v"]
-[ext_resource type="Texture2D" uid="uid://c68yrwfaiod15" path="res://Character/Enemy/Asteroid.png" id="2_1130v"]
+[ext_resource type="Texture2D" uid="uid://covihqg4ey7lg" path="res://Character/Enemy/Asteroid.png" id="2_1130v"]
 [ext_resource type="PackedScene" uid="uid://bbvvph3df6n33" path="res://FX/Fire/Fire.tscn" id="3_bvx7d"]
-[ext_resource type="Texture2D" uid="uid://c3ssudlulperm" path="res://Character/Enemy/fire.png" id="3_tb1hm"]
+[ext_resource type="Texture2D" uid="uid://clt8g86idr0do" path="res://Character/Enemy/fire.png" id="3_tb1hm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a4umb"]
 size = Vector2(48, 48)
@@ -15,6 +15,7 @@ size = Vector2(33, 32)
 collision_layer = 4
 collision_mask = 0
 script = ExtResource("1_1130v")
+speed = 40
 
 [node name="Fire" type="Sprite2D" parent="."]
 visible = false
@@ -45,6 +46,10 @@ collision_mask = 33
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(-0.5, 0)
 shape = SubResource("RectangleShape2D_1130v")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 10.0
+one_shot = true
 
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

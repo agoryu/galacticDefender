@@ -1,6 +1,7 @@
-[gd_scene load_steps=12 format=3 uid="uid://c6mh7y2twxth0"]
+[gd_scene load_steps=13 format=3 uid="uid://c6mh7y2twxth0"]
 
-[ext_resource type="Texture2D" uid="uid://dcbprlk518ouv" path="res://Base/BoostStation/BoostStation.png" id="1_ortar"]
+[ext_resource type="Texture2D" uid="uid://buud2yh1ksasw" path="res://Base/BoostStation/BoostStation.png" id="1_ortar"]
+[ext_resource type="Script" uid="uid://bp6230i8m3cdc" path="res://Base/BoostStation/boost_station.gd" id="1_vcny1"]
 [ext_resource type="Script" uid="uid://pvyucmik5nql" path="res://Base/BoostStation/BoostStationAnimation.gd" id="2_rdyqo"]
 
 [sub_resource type="Animation" id="Animation_vnn1l"]
@@ -69,6 +70,7 @@ alpha_curve = SubResource("CurveTexture_i5sb8")
 
 [node name="BoostStation" type="Node2D"]
 z_index = 10
+script = ExtResource("1_vcny1")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 self_modulate = Color(1, 1, 1, 0.52549)
@@ -101,3 +103,6 @@ amount = 16
 lifetime = 4.0
 speed_scale = 2.0
 process_material = SubResource("ParticleProcessMaterial_i5sb8")
+
+[connection signal="body_entered" from="BoostStationArea" to="." method="_on_boost_station_area_body_entered"]
+[connection signal="body_exited" from="BoostStationArea" to="." method="_on_boost_station_area_body_exited"]
