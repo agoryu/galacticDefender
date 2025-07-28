@@ -1,8 +1,8 @@
 [gd_scene load_steps=11 format=3 uid="uid://ksbdxjiwbk84"]
 
-[ext_resource type="Texture2D" uid="uid://hmoqd0j4dcax" path="res://Base/Station.png" id="1_edygm"]
-[ext_resource type="Texture2D" uid="uid://cuyx7qmy53sxg" path="res://Base/MissilesCrate.png" id="2_xgawp"]
-[ext_resource type="Texture2D" uid="uid://c1w205tigh2ke" path="res://Base/BulletsCrate.png" id="3_wnbwn"]
+[ext_resource type="Texture2D" uid="uid://ronsogamn8ci" path="res://Base/Station.png" id="1_edygm"]
+[ext_resource type="Texture2D" uid="uid://rv7q863lgef8" path="res://Base/MissilesCrate.png" id="2_xgawp"]
+[ext_resource type="Texture2D" uid="uid://cywi57287mnsf" path="res://Base/BulletsCrate.png" id="3_wnbwn"]
 [ext_resource type="PackedScene" uid="uid://br5fnl4nn8rlj" path="res://Character/Shooter/Shooter.tscn" id="4_xgawp"]
 [ext_resource type="PackedScene" uid="uid://c6mh7y2twxth0" path="res://Base/BoostStation/BoostStation.tscn" id="5_wnbwn"]
 [ext_resource type="PackedScene" uid="uid://dnuk77piuoc2f" path="res://Base/Telescop/Telescop.tscn" id="6_vnn1l"]
@@ -71,7 +71,7 @@ position = Vector2(-112, 70)
 shape = SubResource("RectangleShape2D_xgawp")
 
 [node name="BoostStation" parent="." instance=ExtResource("5_wnbwn")]
-position = Vector2(30, 22)
+position = Vector2(274, 58)
 
 [node name="Telescop" parent="." instance=ExtResource("6_vnn1l")]
 position = Vector2(-280, 40)

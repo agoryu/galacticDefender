@@ -1,8 +1,86 @@
-[gd_scene load_steps=13 format=3 uid="uid://c6mh7y2twxth0"]
+[gd_scene load_steps=24 format=3 uid="uid://c6mh7y2twxth0"]
 
-[ext_resource type="Texture2D" uid="uid://buud2yh1ksasw" path="res://Base/BoostStation/BoostStation.png" id="1_ortar"]
 [ext_resource type="Script" uid="uid://bp6230i8m3cdc" path="res://Base/BoostStation/boost_station.gd" id="1_vcny1"]
 [ext_resource type="Script" uid="uid://pvyucmik5nql" path="res://Base/BoostStation/BoostStationAnimation.gd" id="2_rdyqo"]
+[ext_resource type="Texture2D" uid="uid://cunwgwflk2mop" path="res://Base/BoostStation/BoostStation-Sheet.png" id="2_vcny1"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hvjni"]
+atlas = ExtResource("2_vcny1")
+region = Rect2(0, 0, 34, 51)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0ipel"]
+atlas = ExtResource("2_vcny1")
+region = Rect2(34, 0, 34, 51)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lhd58"]
+atlas = ExtResource("2_vcny1")
+region = Rect2(68, 0, 34, 51)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ky1mu"]
+atlas = ExtResource("2_vcny1")
+region = Rect2(102, 0, 34, 51)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xaw2c"]
+atlas = ExtResource("2_vcny1")
+region = Rect2(136, 0, 34, 51)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_koqt1"]
+atlas = ExtResource("2_vcny1")
+region = Rect2(170, 0, 34, 51)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8xthe"]
+atlas = ExtResource("2_vcny1")
+region = Rect2(204, 0, 34, 51)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0sf68"]
+atlas = ExtResource("2_vcny1")
+region = Rect2(238, 0, 34, 51)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ciwpy"]
+atlas = ExtResource("2_vcny1")
+region = Rect2(272, 0, 34, 51)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_42fjb"]
+atlas = ExtResource("2_vcny1")
+region = Rect2(306, 0, 34, 51)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_b4bg1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hvjni")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0ipel")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lhd58")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ky1mu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xaw2c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_koqt1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8xthe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0sf68")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ciwpy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_42fjb")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="Animation" id="Animation_vnn1l"]
 length = 0.001
@@ -42,7 +120,7 @@ _data = {
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wnbwn"]
-size = Vector2(64, 12)
+size = Vector2(88, 23)
 
 [sub_resource type="Curve" id="Curve_vnn1l"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.986175, 0.0224719), -3.04775, 0.0, 0, 0]
@@ -69,19 +147,20 @@ color = Color(0.6528, 0.96, 0.73984, 1)
 alpha_curve = SubResource("CurveTexture_i5sb8")
 
 [node name="BoostStation" type="Node2D"]
+self_modulate = Color(1, 1, 1, 0.52549)
 z_index = 10
 script = ExtResource("1_vcny1")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-self_modulate = Color(1, 1, 1, 0.52549)
-z_as_relative = false
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
-position = Vector2(224, 23.5932)
-scale = Vector2(1.8, 1.8)
-texture = ExtResource("1_ortar")
+position = Vector2(0, -32)
+scale = Vector2(2.5, 2.5)
+sprite_frames = SubResource("SpriteFrames_b4bg1")
+frame_progress = 0.353382
+speed_scale = 2.0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-root_node = NodePath("../Sprite2D")
+root_node = NodePath("")
 libraries = {
 &"": SubResource("AnimationLibrary_i5sb8")
 }
@@ -93,14 +172,14 @@ collision_layer = 0
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BoostStationArea"]
-position = Vector2(224, 72)
+position = Vector2(-1, 24.5)
 shape = SubResource("RectangleShape2D_wnbwn")
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="."]
 z_as_relative = false
-position = Vector2(224, 63)
+position = Vector2(-1, 15)
 amount = 16
-lifetime = 4.0
+lifetime = 3.0
 speed_scale = 2.0
 process_material = SubResource("ParticleProcessMaterial_i5sb8")
 

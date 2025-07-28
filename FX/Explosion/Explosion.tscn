@@ -1,8 +1,8 @@
 [gd_scene load_steps=12 format=3 uid="uid://b2xgmikvdpcm"]
 
-[ext_resource type="Texture2D" uid="uid://cm0ejrrw6y1m1" path="res://FX/Explosion/Explosion-Sheet.png" id="1_2pq70"]
+[ext_resource type="Texture2D" uid="uid://bnoa0ist55jle" path="res://FX/Explosion/Explosion-Sheet.png" id="1_2pq70"]
 [ext_resource type="Script" uid="uid://db3ne5htg6uej" path="res://FX/Explosion/Explosion.gd" id="1_iym1b"]
-[ext_resource type="AudioStream" uid="uid://bm1voffnjg7us" path="res://FX/Explosion/explosion.wav" id="1_tviha"]
+[ext_resource type="AudioStream" uid="uid://xse5tja6nv1l" path="res://FX/Explosion/explosion.wav" id="1_tviha"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_iym1b"]
 atlas = ExtResource("1_2pq70")

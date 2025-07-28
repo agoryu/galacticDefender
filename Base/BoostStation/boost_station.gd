@@ -4,6 +4,10 @@ signal activate_boost
 signal desactivate_boot
 
 @onready var particles : GPUParticles2D = $GPUParticles2D
+@onready var portal: AnimatedSprite2D = $AnimatedSprite2D
+
+func _ready() -> void:
+	portal.play("default")
 
 func _on_boost_station_area_body_entered(body: Node2D) -> void:
 	particles.modulate = Color(1., 1., 0.5)
