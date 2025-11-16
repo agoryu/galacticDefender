@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://dnuk77piuoc2f"]
 
 [ext_resource type="Script" uid="uid://b6whkugpl70el" path="res://Base/telescop.gd" id="1_lrn3v"]
-[ext_resource type="Texture2D" uid="uid://cca36ifi80l3e" path="res://icon.svg" id="2_mjyl4"]
+[ext_resource type="Texture2D" uid="uid://dr0r8ajmj0a2p" path="res://Base/Telescop/telescop.png" id="2_jd3p1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vnn1l"]
 size = Vector2(32, 96)
@@ -10,8 +10,10 @@ size = Vector2(32, 96)
 script = ExtResource("1_lrn3v")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.5, 0.8)
-texture = ExtResource("2_mjyl4")
+texture_filter = 1
+position = Vector2(-0.5, 1.90735e-06)
+scale = Vector2(3, 3)
+texture = ExtResource("2_jd3p1")
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 0
